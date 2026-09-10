@@ -221,7 +221,6 @@ app.post('/webhook/handypay', async (req, res) => {
         await mailTicket(order.email, order, ticketPath);
       } catch (emailError) {
         console.error('Organiser email failed:', externalId, emailError.message);
-        // Don't fail the payment if email fails
       }
 
       res.json({ status: 'success' });
